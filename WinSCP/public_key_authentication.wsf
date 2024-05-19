@@ -1,0 +1,27 @@
+<job>
+<reference object="WinSCP.Session" />
+<script language="JScript">
+
+var sessionOptions = WScript.CreateObject("WinSCP.SessionOptions");
+sessionOptions.Protocol = Protocol_Sftp;
+sessionOptions.HostName = "hostname";
+sessionOptions.UserName = "username";
+sessionOptions.PrivateKeyPassphrase = "passphrase";
+sessionOptions.SshPrivateKeyPath = "C:/temp/test.ppk";
+sessionOptions.SshHostKeyFingerprint = "fingerprint"; // WinSCP > Session > Generate
+
+var session = WScript.CreateObject("WinSCP.Session");
+
+// connect
+session.Open(sessionOptions);
+
+// download files
+var transferOptions = WScript.CreateObject("WinSCP.TransferOptions");
+transferOptions.TransferMode = TransferMode_Binary;
+
+var transferResult = session.GetFiles("/server/path/test.txt", "D:\\client\\path\\save.txt", false, transferOptions);
+
+WScript.Echo("end.");
+
+</script>
+</job>

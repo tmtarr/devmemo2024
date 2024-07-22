@@ -1,0 +1,198 @@
+## 参考
+【Java】グラフが簡単に作れるJFreeChartを導入してみよう | ポテパンスタイル
+https://style.potepan.com/articles/31709.html
+JFreeChartを使ったグラフ作成
+http://kamifuji.dyndns.org/JSupport/JAVA_JFreeChart/index.html
+JFreeChartサンプル #Dataset - Qiita
+https://qiita.com/artery/items/3e9c63e5c14a9e965c97
+Java/Tomcat/JFreeChartで動的にグラフを出力するサンプル - ちゃぱてぃ商店IT部 @ ウィキ - atwiki（アットウィキ）
+https://w.atwiki.jp/chapati4it/pages/153.html
+Introduction to JFreeChart | Baeldung
+https://www.baeldung.com/jfreechart-visualize-data
+画像ファイルとして出力 - グラフの出力 - JFreeChartを使ったグラフ作成
+http://javadrive.s25.xrea.com/jfreechart/output/index1.html
+JFreeChart - Tutorial
+https://www.vogella.com/tutorials/JFreeChart/article.html
+学習＆実践まとめ：JFreeChart - Diary of absj31
+https://absj31.hatenadiary.com/entry/20110415/1302800832
+→古いリンク集が役立つかも？
+JFreeChartを使ったグラフ作成
+https://web.archive.org/web/20170225072706/http://www.javadrive.jp/jfreechart/
+
+3.5.5.3. JFreeChart  ViewCreator 管理者操作ガイド  第33版 2024-06-28  intra-mart Accel Platform
+https://document.intra-mart.jp/library/iap/public/viewcreator/viewcreator_administrator_guide/texts/basic_guide/basic_guide_3.html
+→これはintra-mart内でJFreeChartをライブラリとして使っている画面の話なので
+このページにJFreeChart自体の使い方は載っていない。
+
+
+http://www.javadrive.jp/jfreechart/
+https://www.javadrive.jp/jfreechart/
+
+
+
+javac Sample.java -cp D:\doc\res\java\20240712-JFreeChart\jar\jfreechart-1.0.12.jar;D:\doc\res\java\20240712-JFreeChart\jar\jcommon-1.0.15.jar
+→OK
+java Sample -cp D:\doc\res\java\20240712-JFreeChart\jar\jfreechart-1.0.12.jar;D:\doc\res\java\20240712-JFreeChart\jar\jcommon-1.0.15.jar
+java -cp D:\doc\res\java\20240712-JFreeChart\jar\jfreechart-1.0.12.jar;D:\doc\res\java\20240712-JFreeChart\jar\jcommon-1.0.15.jar Sample
+→NG
+
+java -cp D:\doc\res\java\20240712-JFreeChart\jar\jfreechart-1.0.12.jar;D:\doc\res\java\20240712-JFreeChart\jar\jcommon-1.0.15.jar;D:\doc\res\java\20240712-JFreeChart Sample
+→OK
+-cpを指定しなければ、自動的にカレントディレクトリがクラスパスに設定されるが
+-cpを指定するときは明示的にカレントディレクトリを指定する必要がある、かも
+
+old ver
+java -cp D:\doc\res\java\20240712-JFreeChart\jar\jfreechart-1.0.4.jar;D:\doc\res\java\20240712-JFreeChart\jar\jcommon-1.0.8.jar;D:\doc\res\java\20240712-JFreeChart Sample
+→OK
+
+
+
+java Sample
+
+
+## todo
+* Javaソースコードの文字コードは？
+http://kamifuji.dyndns.org/JSupport/JAVA_Start/Encoding/index.html
+→WindowsだとMS932みたい、LinuxはUTF8？
+
+* Amazon Linuxを入手？
+https://blog.serverworks.co.jp/al2-vs-al2023
+
+* フォント設定？
+javaのフォント設定
+◇windows
+C:\Program Files\Eclipse Foundation\jdk-8.0.302.8-hotspot\jre\lib
+fontconfig.properties.src
+
+◇Linux
+/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64
+ここがjavaインストール先みたいだけど
+
+/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/jre/lib
+この中にフォント設定っぽいものは見つからない
+
+
+http://javadrive.s25.xrea.com/jfreechart/legend/index4.html
+→タイトルとか凡例だけかも
+
+Change the font family for entire JFreeChart - www.jfree.org
+https://www.jfree.org/forum/viewtopic.php?t=30181
+
+https://www.javadrive.jp/tutorial/font/index4.html
+
+Linux フォント関連コマンドまとめ #fontconfig - Qiita
+https://qiita.com/aosho235/items/6dc59b0f3dba373f3564
+
+
+## cmd.exe用コマンド
+javac FontChk.java -cp D:\doc\res\java\20240712-JFreeChart\jar\jfreechart-1.0.12.jar;D:\doc\res\java\20240712-JFreeChart\jar\jcommon-1.0.15.jar
+java -cp D:\doc\res\java\20240712-JFreeChart\jar\jfreechart-1.0.12.jar;D:\doc\res\java\20240712-JFreeChart\jar\jcommon-1.0.15.jar;D:\doc\res\java\20240712-JFreeChart FontChk
+
+カレントディレクトリをクラスパスに含めるには以下でもいい
+java -cp .;D:\doc\res\java\20240712-JFreeChart\jar\jfreechart-1.0.12.jar;D:\doc\res\java\20240712-JFreeChart\jar\jcommon-1.0.15.jar FontChk
+
+以下はNG（StandardChartThemeがない）
+java -cp D:\doc\res\java\20240712-JFreeChart\jar\jfreechart-1.0.4.jar;D:\doc\res\java\20240712-JFreeChart\jar\jcommon-1.0.8.jar;D:\doc\res\java\20240712-JFreeChart FontChk
+
+## Powershell用コマンド
+javac Hello.java
+java Hello
+
+×javac FontChk.java -cp D:\doc\res\java\20240712-JFreeChart\jar\jfreechart-1.0.12.jar;D:\doc\res\java\20240712-JFreeChart\jar\jcommon-1.0.15.jar
+javac FontChk.java -cp "D:\doc\res\java\20240712-JFreeChart\jar\jfreechart-1.0.12.jar;D:\doc\res\java\20240712-JFreeChart\jar\jcommon-1.0.15.jar"
+java -cp ".;D:\doc\res\java\20240712-JFreeChart\jar\jfreechart-1.0.12.jar;D:\doc\res\java\20240712-JFreeChart\jar\jcommon-1.0.15.jar" FontChk
+
+
+
+## linux用コマンド調査メモ
+javac Hello.java
+java Hello
+→OK
+
+java -cp /home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar:/home/ec2-user/work/20240720-jfree/jar/jcommon-1.0.15.jar Hello
+java -cp /home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar Hello
+java -classpath /home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar Hello
+→NG
+
+java Hello -cp /home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar
+java Hello -classpath /home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar
+→いけるが、classpathが呼び出されているかは不明→呼び出されていない
+
+
+javac FontChk.java -cp /home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar:/home/ec2-user/work/20240720-jfree/jar/jcommon-1.0.15.jar
+→OK
+
+java -cp /home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar:/home/ec2-user/work/20240720-jfree/jar/jcommon-1.0.15.jar FontChk
+java -cp /home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.4.jar:/home/ec2-user/work/20240720-jfree/jar/jcommon-1.0.8.jar FontChk
+
+java -classpath /home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar:/home/ec2-user/work/20240720-jfree/jar/jcommon-1.0.15.jar FontChk
+
+javac FontChk.java -cp /home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar:/home/ec2-user/work/20240720-jfree/jar/jcommon-1.0.15.jar
+java FontChk
+
+java FontChk -cp /home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar:/home/ec2-user/work/20240720-jfree/jar/jcommon-1.0.15.jar
+
+
+## -cpオプションを指定する方法（動作確認済み）
+javac FontChk.java -cp /home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar:/home/ec2-user/work/20240720-jfree/jar/jcommon-1.0.15.jar
+java -cp .:/home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar:/home/ec2-user/work/20240720-jfree/jar/jcommon-1.0.15.jar FontChk
+
+
+## CLASSPATH環境変数に設定する方法（動作確認済み）
+CLASSPATH=/home/ec2-user/work/20240720-jfree/jar/jfreechart-1.0.12.jar:/home/ec2-user/work/20240720-jfree/jar/jcommon-1.0.15.jar:/home/ec2-user/work/20240720-jfree
+echo $CLASSPATH
+export CLASSPATH
+
+javac FontChk.java
+java FontChk
+
+
+LinuxのみCLASSPATHを指定するとカレントディレクトリがクラスパスから外れる？？？
+→windowsもそうだった
+
+クラスパスの設定
+https://docs.oracle.com/javase/jp/1.5.0/tooldocs/windows/classpath.html
+> デフォルトのクラスパスは、現在のディレクトリです。このデフォルトは、CLASSPATH 変数を設定したり、
+> -classpath コマンド行オプションを使用したりするとオーバーライドされます。
+> そのため、検索パスに現在のディレクトリを含める場合には、新しい設定に「.」を含める必要があります。 
+→ 「.」を入れればよさそう
+
+
+# 2024/07/20
+Java の Font 周りの比較的ディープな話(前編) | Tech Blog | CRESCO Tech Blog
+https://www.cresco.co.jp/blog/entry/91.html
+
+keyword: バリアブルフォント java
+
+Font (Java Platform SE 8 )
+https://docs.oracle.com/javase/jp/8/docs/api/java/awt/Font.html
+ちゃんと読むか・・・
+
+Java Platform Standard Edition 8ドキュメント
+https://docs.oracle.com/javase/jp/8/docs/index.html
+
+国際化 > フォント構成ファイル
+https://docs.oracle.com/javase/jp/1.5.0/guide/intl/fontconfig.html
+https://docs.oracle.com/javase/jp/8/docs/technotes/guides/intl/fontconfig.html
+国際化ガイド > フォント構成ファイル
+https://docs.oracle.com/javase/jp/12/intl/font-configuration-files.html#GUID-48F5ADDD-FB48-461D-8F26-9805DFB783CD
+
+
+
+Java Platform Standard Edition
+国際化ガイド
+Internationalization Guide
+
+
+「jfreeChartの文字化けについて」（1） Java Solution － ＠IT
+https://atmarkit.itmedia.co.jp/bbs/phpBB/viewtopic.php?topic=21485&forum=12
+
+## linuxへのフォントインストール
+【 fc-cache 】コマンド――フォントキャッシュを更新する：Linux基本コマンドTips（266） - ＠IT
+https://atmarkit.itmedia.co.jp/ait/articles/1812/14/news034.html
+
+Linux フォント関連コマンドまとめ #fontconfig - Qiita
+https://qiita.com/aosho235/items/6dc59b0f3dba373f3564
+
+fc-cache -fv
+

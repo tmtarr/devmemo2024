@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function doClick() {
+//			alert("くりっく");
+			const dialog = document.querySelector('#myDialog');
+			dialog.showModal();
+		}
+	</script>
+</head>
+<body>
+
+
+<dialog id="myDialog">
+  <p>本当に入信しますか？</p>
+  <button class="button cancel">キャンセル</button>
+  <button class="button ok">OK</button>
+</dialog>
+
+<button id="showButton">ダイアログを開く</button>
+<input type="button" value="公開" onclick="doClick();" />
+
+<script>
+  //各要素を変数に代入
+  const dialog = document.querySelector('#myDialog');
+  const cancelButton = document.querySelector('#myDialog .button.cancel');
+  const okButton = document.querySelector('#myDialog .button.ok');
+  const showButton = document.querySelector('#showButton');
+
+  //「ダイアログを開く」ボタンがクリックされたらダイアログを開く
+  showButton.addEventListener('click', function () {
+    dialog.showModal();
+  });
+  //キャンセルがクリックされたらダイアログを閉じてcancelを返す
+  cancelButton.addEventListener('click', function () {
+    dialog.close('cancel');
+  });
+  //OKがクリックされたらダイアログを閉じてokを返す
+  okButton.addEventListener('click', function () {
+    dialog.close('ok');
+  });
+
+  //closeイベントが発生したらalertで戻り値を表示
+  dialog.addEventListener('close', function () {
+    alert('returnValue: ' + dialog.returnValue);
+    if (dialog.returnValue == "ok") {
+    	document.getElementById("frmSub").submit();
+    }
+  });
+</script>
+
+<form id="frmSub" action="otherpage.html"></form>
+
+</body>
+</html>

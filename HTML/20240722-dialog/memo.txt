@@ -1,0 +1,6 @@
+Javascriptを使って独自のダイアログボックスを作成する #JavaScript - Qiita
+https://qiita.com/yuya_maru2/items/fa07a00d3a0e3b80d03f
+
+【JavaScript】dialog要素を使ってダイアログを自作する
+https://oopsoop.com/how-to-create-a-dialog-box-with-javascript/
+
